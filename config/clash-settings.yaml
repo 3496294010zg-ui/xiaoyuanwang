@@ -1,0 +1,36 @@
+# ============================================================
+# Clash Verge 设置参考 (verge.yaml)
+#
+# 这些是 verge.yaml 中影响代理行为的核心设置。
+# 不要直接覆盖整个 verge.yaml，只调整需要的项。
+# ============================================================
+
+# ---- 端口 ----
+# Clash Verge → 设置 → 端口
+# mixed-port 对外提供 HTTP + SOCKS 代理
+mixed-port: 7897      # 混合端口 (主要)
+socks-port: 7898      # SOCKS5 端口
+port: 7899            # HTTP 端口
+
+# ---- 系统代理 ----
+# Clash Verge → 设置 → 系统代理
+enable_system_proxy: false    # 启动时不自动开 (按需手动开启)
+enable_proxy_guard: false     # 不自动恢复 (防止游戏误检测)
+enable_bypass_check: true     # 检查代理是否被绕过
+
+# ---- TUN 模式 ----
+# Clash Verge → 设置 → TUN 模式
+enable_tun_mode: false        # 需要管理员权限
+# tun:
+#   enable: true
+#   stack: gvisor
+#   auto-route: true
+#   auto-detect-interface: true
+#   dns-hijack:
+#     - any:53
+
+# ---- 其他 ----
+enable_auto_launch: false     # 不开机自启
+enable_silent_start: true     # 静默启动 (最小化到托盘)
+enable_builtin_enhanced: true # 内置增强规则
+auto_close_connection: true   # 切换节点时关闭旧连接

@@ -1,0 +1,13 @@
+# Personal config files (may contain subscription URLs, UUIDs, etc.)
+*.local.yaml
+*.private.*
+profiles/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/

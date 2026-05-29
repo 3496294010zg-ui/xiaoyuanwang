@@ -1,0 +1,66 @@
+# ============================================================
+# Clash DNS 配置模板
+# 放置于: Clash Verge → 设置 → DNS 配置
+# 或直接覆盖: %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\dns_config.yaml
+# ============================================================
+
+dns:
+  enable: true
+  listen: :53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+
+  # 以下参数不要随意改，否则国内 DNS 解析异常
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+
+  fake-ip-filter:
+    - '*.lan'
+    - '*.local'
+    - '*.arpa'
+    - time.*.com
+    - ntp.*.com
+    - +.market.xiaomi.com
+    - localhost.ptlogin2.qq.com
+    - '*.msftncsi.com'
+    - www.msftconnecttest.com
+
+  # 上游 DNS — 国内用 DoH/阿里
+  default-nameserver:
+    - system
+    - 223.5.5.5
+    - 8.8.8.8
+
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+
+  # 被墙域名用境外 DNS (需通过节点代理查询)
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+
+  # fallback 为空时使用 nameserver 解析被墙域名
+  # 如需专用 fallback，取消下方注释:
+  # fallback:
+  #   - https://1.1.1.1/dns-query
+  #   - https://8.8.8.8/dns-query
+  fallback: []
+
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - +.google.com
+      - +.youtube.com
+      - +.github.com
+      - +.twitter.com
+      - +.facebook.com
+      - +.openai.com
+      - +.netflix.com
+      - +.discord.com
