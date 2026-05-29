@@ -98,6 +98,12 @@ powershell -File ./scripts/fix-system-proxy.ps1
 
 看 [docs/troubleshooting.md](docs/troubleshooting.md)，覆盖了节点层、系统代理层、DNS 层、SNI 问题的完整排查。
 
+### 用 AI Agent 自动排查
+
+如果你在用 Claude Code，直接把问题描述发给它就行——详见 [docs/agent-guide.md](docs/agent-guide.md)。
+
+Agent 能自动诊断、修注册表、清理残留，效果跟跑脚本一样，还能根据具体情况灵活判断。
+
 ---
 
 ## 常见场景
@@ -148,7 +154,8 @@ npm install --proxy http://127.0.0.1:7897
 ├── README.md                     ← 你在看的这个
 ├── docs/
 │   ├── guide.md                  ← 日常使用参考
-│   └── troubleshooting.md        ← 完整排查手册
+│   ├── troubleshooting.md        ← 完整排查手册
+│   └── agent-guide.md            ← AI Agent 操作指引
 ├── scripts/
 │   ├── test-proxy.ps1            ← 一键诊断 (6项检查+残留扫描)
 │   └── fix-system-proxy.ps1      ← 注册表清理+代理重置
